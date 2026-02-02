@@ -2,14 +2,20 @@
 import Pixels from "../components/Pixels.astro";
 
 const { title, breadcrumbs = null, faqs = null } = Astro.props;
+const SITE_NAME = "Servry";
+const SITE_URL = "https://servry.com"; // placeholder for now
+const SITE_DESCRIPTION =
+  "Servry is a form-first GEO-SEO platform connecting consumers with national providers for replacement and life-stage services.";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{title}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title ? `${title} | ${SITE_NAME}` : SITE_NAME}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
 
     <!-- GOOGLE TAG (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMDPYFW90C"></script>
@@ -20,32 +26,31 @@ const { title, breadcrumbs = null, faqs = null } = Astro.props;
       gtag('config', 'G-ZMDPYFW90C');
     </script>
 
-    <!-- SITE-WIDE SCHEMA -->
+    <!-- WEBSITE SCHEMA -->
     <script type="application/ld+json">
       {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "WebSite",
-        name: "Luxesur",
-        url: "https://www.luxesur.com",
-        description:
-          "Luxesur is a consumer-facing informational and referral platform that helps users find assistance for emergency plumbing situations through independent third-party service providers.",
+        name: SITE_NAME,
+        url: SITE_URL,
+        description: SITE_DESCRIPTION,
         publisher: {
           "@type": "Organization",
-          name: "Luxesur",
-          url: "https://www.luxesur.com",
+          name: SITE_NAME,
+          url: SITE_URL,
         },
       })}
     </script>
 
-    <!-- ORGANIZATION SCHEMA (NO PHONE DURING BAKE) -->
+    <!-- ORGANIZATION SCHEMA (NO PHONE, NO LOCAL CLAIMS) -->
     <script type="application/ld+json">
       {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "Luxesur",
-        url: "https://www.luxesur.com",
+        name: SITE_NAME,
+        url: SITE_URL,
         description:
-          "Luxesur operates as an informational and referral platform connecting users with independent emergency plumbing service providers.",
+          "Servry operates as an informational and referral platform connecting consumers with national service providers through online request forms.",
       })}
     </script>
 
@@ -85,7 +90,7 @@ const { title, breadcrumbs = null, faqs = null } = Astro.props;
       />
     )}
 
-    <!-- PIXELS (OFF BY DEFAULT) -->
+    <!-- PIXELS (OFF BY DEFAULT / SAFE) -->
     <Pixels />
 
     <style>

@@ -1,18 +1,5 @@
 {
-  "name": "luxesur",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
-    "@astrojs/node": "^9.5.1",
-    "@astrojs/sitemap": "^3.6.1",
-    "@supabase/supabase-js": "^2.89.0",
-    "astro": "^5.16.6"
-  }
+  "name": "servry",
+  "description": "Form-first GEO-SEO platform for replacement and life-stage service leads, built for low-ops scale and clean exits",
+  "private": true
 }
